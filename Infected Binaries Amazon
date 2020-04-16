@@ -1,9 +1,9 @@
-a=[[0,0,0],[0,0,0],[1,0,0]]
+a=[[0,0,1],[0,0,0],[0,0,0]]
 row=len(a)
 columns=len(a[0])
 def check(a,row,col,ans):
-    temp=[[0]*col for _ in range(row)]
     while(True):
+        temp=[[0]*col for _ in range(row)]
         if all(all(item == 1 for item in items) for items in a):
             return ans
         if all(all(item == 0 for item in items) for items in a):
@@ -29,8 +29,11 @@ def check(a,row,col,ans):
                     except:
                             pass
                     temp[i][j]=1
-        a=temp
+        
         ans+=1
+        a=temp
+        show(a)
+        print(ans)
 def show(a):
     for i in range(len(a)):
         for j in range(len(a[0])):
